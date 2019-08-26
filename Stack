@@ -1,0 +1,55 @@
+public class Stack {
+    Node first; 
+ 
+    public Stack(){
+        first = null;//initialize the empty stack
+    }
+   
+    public void push(Node newNode){
+       
+        if (first == null){ //if the stack is empty, make first point to new Node.
+            first= newNode;    
+    }
+        else if (first != null){//if the stack is not empty, loop until we get to the end of the list
+            Node temp = first;
+            
+        while (temp.next != null){
+            temp = temp.next;   
+        }      
+         temp.next= newNode; //then make the last Node point to new Node
+        }
+    }
+    
+    public Node pop(){ 
+        if(first == null){//if the stack is empty, return null    
+            System.out.println("This stack is empty");
+            return null;
+        }  
+       
+        else if (first.next == null){//Handle the case where there is only one Node in the stack
+            Node temp = first;
+            System.out.println("There is only one node in list");
+            first = null;
+            return temp;
+        }
+          
+        else { //Handle the case where there are at Least two elements in this stack
+            Node temp = first;
+            first=first.next;
+            System.out.println("There is more than one element in this stack.");
+            System.out.println();
+            return first;
+        }
+    }
+    
+    public void print() {
+		//display the entire stack
+        Node tempDisplay = first; // start at the beginning of linkedList
+        
+        while (tempDisplay != null){ // Executes until we don't find end of list.
+            tempDisplay.displayNode();
+            tempDisplay = tempDisplay.next; // move to next Node
+        }
+        System.out.println();
+    }
+}
