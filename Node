@@ -1,0 +1,15 @@
+public class Node {
+    Contributor c;
+    Node next;
+    
+    public Node(Contributor data){
+        c = data;
+        
+    }
+
+    public void displayNode() {
+        c.printContributor();
+    }
+}
+ 
+ 
